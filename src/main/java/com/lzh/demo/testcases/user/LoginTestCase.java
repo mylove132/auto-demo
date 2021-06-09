@@ -4,7 +4,7 @@ import com.lzh.demo.testcases.BaseTestCase;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-@Listeners({com.lzh.demo.listener.AutoListener.class})
+@Listeners({com.lzh.demo.listener.AutoListener.class, com.lzh.demo.listener.ReportListener.class})
 public class LoginTestCase extends BaseTestCase {
 
     @Test(dataProvider = "providerMethod", groups={"normal"})
