@@ -1,0 +1,33 @@
+!!com.lzh.demo.pojo.DataDto
+url: /api/login
+requestType: POST
+connectTimeOut: 10
+normal:
+  -
+    name: login #对应接口测试的方法名称
+    desc: 正常用户名密码登陆
+    params:
+      username: admin
+      password: 123456
+    assert:
+      assertType: REGULAR
+      assertValue: $.data.userId=5 # $代表根节点
+exception:
+  -
+    name: nameOrPasswordError
+    desc: 用户名密码错误
+    params:
+      username: liuwen
+      password: 123456
+    assert:
+      assertType: CONTAIN
+      assertValue: 用户名密码错误
+  -
+    name: nameNotExist
+    desc: 用户名不存在
+    params:
+      username: admin
+      password: 13232
+    assert:
+      assertType: REGULAR
+      assertValue: $.message=用户名不存在
